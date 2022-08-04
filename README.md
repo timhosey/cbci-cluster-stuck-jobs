@@ -8,6 +8,6 @@ A Ruby tool for retrieving stuck jobs across a CloudBees CI Cluster
 4. Run `bundle install` to install gems.
 5. Run `ruby stuckJobs.rb`.
    1. Supply CJOC URL.
-   2. Provide username.
-   3. Provide password.
+   2. Provide an administrative username.
+   3. Provide password for the account.
 6. Allow to complete run.
