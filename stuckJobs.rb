@@ -12,11 +12,13 @@ cjocUri = cjocUri.ask
 username = username.ask
 password = password.ask
 
+puts "\n"
+
 if (!File.exist?('./jenkins-cli.jar'))
   download = URI.open("#{cjocUri}/jnlpJars/jenkins-cli.jar")
   IO.copy_stream(download, './jenkins-cli.jar')
 else
-  puts "CLI Jar exists. Skipping..."
+  puts "CLI Jar exists. Skipping...\n\n"
 end
 
 controllerJson = `java -jar jenkins-cli.jar -s #{cjocUri} -webSocket -auth #{username}:#{password} list-masters`
@@ -25,7 +27,8 @@ controllers = JSON.parse(controllerJson)
 controllers['data']['masters'].each do |controller|
   puts "Processing Controller #{controller['fullName']}..."
   scriptExec = `java -jar jenkins-cli.jar -s #{controller['url']} -webSocket -auth #{username}:#{password} groovy = < ./lib/runningJobs.groovy`
+  puts "#{scriptExec}\n"
 end
 
 # Delete the jar
-# File.delete('./jenkins-cli.jar') if File.exist?('./jenkins-cli.jar')
+File.delete('./jenkins-cli.jar') if File.exist?('./jenkins-cli.jar')
