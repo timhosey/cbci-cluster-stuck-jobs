@@ -11,3 +11,6 @@ A Ruby tool for retrieving stuck jobs across a CloudBees CI Cluster
    2. Provide an administrative username.
    3. Provide password for the account.
 6. Allow to complete run.
+
+## Notice
+This script is provided free of charge, without any warranty or guarantee of support. While it is tested against a CBCI Cluster (CI Modern in EKS Kubernetes), you're using this at your own risk!
