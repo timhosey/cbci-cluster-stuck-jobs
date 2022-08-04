@@ -12,5 +12,8 @@ A Ruby tool for retrieving stuck jobs across a CloudBees CI Cluster
    3. Provide password for the account.
 6. Allow to complete run.
 
+## Customizations
+To adjust the age of a job to define "stuck", edit `lib/runningJobs.groovy` and change the `if (durationInSeconds > 1800) {` line to reflect the number of seconds that means a job is stuck.
+
 ## Notice
 This script is provided free of charge, without any warranty or guarantee of support. While it is tested against a CBCI Cluster (CI Modern in EKS Kubernetes), you're using this at your own risk!
